@@ -1,1 +1,294 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aswin Francis | 3D Supply Chain Portfolio</title>
+<style>
+:root {
+  --bg:#050b16;
+  --panel:#0d192b;
+  --blue:#50baff;
+  --cyan:#4af0ed;
+  --white:#f4f8ff;
+  --muted:#a9b8ca;
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:Arial,sans-serif;line-height:1.7;overflow-x:hidden
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(ellipse at 75% 15%,#10345b55,transparent 40%),
+             radial-gradient(ellipse at 10% 70%,#082c4655,transparent 35%)
+}
+nav{
+  position:sticky;top:0;z-index:20;padding:17px 7%;
+  display:flex;justify-content:space-between;align-items:center;
+  background:#050b16eF;border-bottom:1px solid #27405c;
+  backdrop-filter:blur(15px);gap:15px
+}
+.logo{font-size:21px;font-weight:800;letter-spacing:1px}
+.logo span,h1 span,h2 span{color:var(--blue)}
+nav a{color:var(--muted);text-decoration:none;margin-left:17px;font-size:14px}
+nav a:hover{color:var(--cyan)}
+section{padding:95px 9%;scroll-margin-top:75px}
+.hero{
+  min-height:690px;display:flex;align-items:center;
+  position:relative;overflow:hidden;isolation:isolate
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.35;
+  background-image:linear-gradient(#4bbaff18 1px,transparent 1px),
+  linear-gradient(90deg,#4bbaff18 1px,transparent 1px);
+  background-size:45px 45px;
+  mask-image:linear-gradient(to right,transparent,black)
+}
+.hero-content{max-width:620px;position:relative;z-index:3;animation:reveal 1.2s ease both}
+.tag{color:var(--cyan);font-size:13px;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.1;margin:20px 0}
+h2{font-size:clamp(28px,4vw,40px);margin:12px 0 20px}
+.hero h2{font-size:clamp(23px,3vw,32px)}
+p{color:var(--muted)}
+.hero p,.intro{font-size:17px;max-width:750px}
+.btn{
+  display:inline-block;margin:22px 10px 0 0;padding:12px 23px;
+  border-radius:7px;background:var(--blue);color:#04101e;
+  font-weight:bold;text-decoration:none;transition:.3s
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px #50baff55}
+.btn-outline{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+/* 3D globe */
+.globe-wrap{
+  position:absolute;width:390px;height:390px;right:5%;top:50%;
+  transform:translateY(-50%);perspective:900px;z-index:1
+}
+.globe{
+  position:absolute;inset:0;border-radius:50%;
+  background:
+  radial-gradient(circle at 32% 28%,#4af0ed99 0%,#1474b9 12%,#092b59 42%,#030916 75%);
+  border:1px solid #61d7ff88;
+  box-shadow:0 0 35px #168bff77,0 0 100px #168bff33,
+  inset -30px -25px 55px #000c,inset 12px 8px 30px #83eaff55;
+  transform-style:preserve-3d;animation:globeSpin 18s linear infinite
+}
+.globe::before,.globe::after{
+  content:"";position:absolute;inset:8%;border:1px solid #72dcff88;
+  border-radius:50%;transform:rotateY(65deg) scaleX(.55);
+  box-shadow:0 0 12px #50baff44
+}
+.globe::after{transform:rotateY(-65deg) scaleX(.55);border-color:#4af0ed66}
+.globe-grid{
+  position:absolute;inset:0;border-radius:50%;
+  background:repeating-linear-gradient(0deg,transparent 0 35px,#4adfff33 36px 37px);
+  mask-image:radial-gradient(circle,black 45%,transparent 73%)
+}
+.orbit{
+  position:absolute;inset:-13%;border:1px solid #50baff88;
+  border-radius:50%;transform:rotateX(70deg) rotateZ(-20deg);
+  animation:orbit 8s linear infinite
+}
+.orbit.two{inset:-22%;transform:rotateX(70deg) rotateZ(40deg);animation-duration:12s;border-color:#4af0ed66}
+.orbit-dot{
+  position:absolute;width:10px;height:10px;border-radius:50%;
+  background:var(--cyan);box-shadow:0 0 18px var(--cyan);
+  top:15%;left:25%
+}
+@keyframes globeSpin{to{transform:rotateY(360deg)}}
+@keyframes orbit{to{transform:rotateX(70deg) rotateZ(340deg)}}
+@keyframes reveal{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+.marquee{overflow:hidden;border-block:1px solid #24415d;padding:17px 0;background:#091525}
+.marquee-track{display:flex;width:max-content;animation:marquee 25s linear infinite}
+.marquee span{font-size:17px;font-weight:bold;letter-spacing:2px;color:var(--cyan);padding:0 28px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:28px}
+.card{
+  background:linear-gradient(145deg,#12243b,#091321);
+  border:1px solid #294662;border-radius:15px;padding:25px;
+  transition:transform .35s,box-shadow .35s;transform-style:preserve-3d;
+  position:relative;overflow:hidden
+}
+.card::before{
+  content:"";position:absolute;width:180px;height:180px;top:-100px;right:-80px;
+  background:#50baff22;border-radius:50%;filter:blur(20px)
+}
+.card:hover{transform:perspective(900px) rotateY(-5deg) rotateX(5deg) translateY(-9px);box-shadow:0 20px 45px #0008,0 0 25px #50baff22}
+.card h3{color:var(--blue);margin-bottom:10px}
+.card p{font-size:15px}
+.icon3d{font-size:34px;margin-bottom:12px;filter:drop-shadow(0 0 10px #50baff88)}
+.timeline{border-left:2px solid var(--blue);margin:30px 0 0 12px;padding-left:28px}
+.timeline .card{margin:0 0 22px}
+.skills{display:flex;flex-wrap:wrap;gap:13px;margin-top:25px}
+.skills span{
+  padding:10px 18px;border:1px solid #315779;border-radius:30px;
+  color:var(--cyan);background:#0b1b2e;transition:.3s
+}
+.skills span:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 8px 20px #50baff33}
+.flow{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:12px;margin-top:35px
+}
+.flow-box{
+  padding:20px 22px;border:1px solid var(--blue);border-radius:12px;
+  background:linear-gradient(145deg,#173958,#0b192b);
+  box-shadow:0 0 22px #50baff22;animation:float 4s ease-in-out infinite
+}
+.flow-box:nth-child(3){animation-delay:.5s}
+.flow-box:nth-child(5){animation-delay:1s}
+.flow-box:nth-child(7){animation-delay:1.5s}
+.arrow{color:var(--cyan);font-size:24px}
+@keyframes float{50%{transform:translateY(-9px)}}
+.contact{text-align:center}
+footer{text-align:center;padding:28px;border-top:1px solid #263b53;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:850px){
+ .globe-wrap{width:250px;height:250px;right:-25px;top:auto;bottom:25px;opacity:.55}
+ .hero{min-height:750px;align-items:flex-start;padding-top:80px}
+ .hero-content{max-width:100%}
+}
+@media(max-width:650px){
+ nav{justify-content:center;flex-direction:column}
+ nav a{margin:0 7px;font-size:12px}
+ section{padding:70px 7%}
+ .flow{flex-direction:column}
+ .arrow{transform:rotate(90deg)}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+ .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ASWIN FRANCIS<span>.</span></div>
+  <div>
+    <a href="#home">Home</a><a href="#about">About</a>
+    <a href="#education">Education</a><a href="#projects">Projects</a>
+    <a href="#skills">Skills</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">SUPPLY CHAIN | LOGISTICS | OPERATIONS</div>
+    <h1>Hello, I'm<br><span>Aswin Francis.</span></h1>
+    <h2>Future Supply Chain Professional</h2>
+    <p>Passionate about supply chain management, logistics, procurement and digital transformation. Interested in using technology and innovative strategies to improve supply chain and operational performance.</p>
+    <a href="#projects" class="btn">Explore My Projects</a>
+    <a href="https://www.linkedin.com/in/aswin-francis-90a22b319/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+  </div>
+  <div class="globe-wrap" aria-hidden="true">
+    <div class="globe"><div class="globe-grid"></div></div>
+    <div class="orbit"><div class="orbit-dot"></div></div>
+    <div class="orbit two"></div>
+  </div>
+</section>
+
+<div class="marquee">
+ <div class="marquee-track">
+  <span>SUPPLY CHAIN ✦ LOGISTICS ✦ PROCUREMENT ✦ INVENTORY ✦ RESILIENCE ✦</span>
+  <span>SUPPLY CHAIN ✦ LOGISTICS ✦ PROCUREMENT ✦ INVENTORY ✦ RESILIENCE ✦</span>
+ </div>
+</div>
+
+<section id="about" class="reveal">
+ <div class="tag">GET TO KNOW ME</div>
+ <h2>About <span>Me</span></h2>
+ <p class="intro">I am a postgraduate student at Newcastle University, focusing on Operations, Logistics and Supply Chain Management. My academic interests include procurement, logistics, supply chain strategy, operations management and digital supply chain technologies.</p>
+ <p class="intro" style="margin-top:15px">I am keen to develop my professional career by applying academic knowledge, analytical thinking and practical problem-solving skills to real-world business challenges.</p>
+</section>
+
+<section id="education" class="reveal">
+ <div class="tag">MY ACADEMIC JOURNEY</div>
+ <h2>My <span>Education</span></h2>
+ <div class="timeline">
+  <div class="card">
+   <div class="icon3d">🎓</div>
+   <h3>Newcastle University</h3>
+   <h4>MSc Operations, Logistics and Supply Chain Management</h4>
+   <p>Postgraduate studies</p>
+   <p>Focus: Supply Chain Management, Procurement, Logistics and Operations Management.</p>
+  </div>
+ </div>
+</section>
+
+<section id="logistics" class="reveal">
+ <div class="tag">HOW THE SUPPLY CHAIN MOVES</div>
+ <h2>Logistics <span>Flow</span></h2>
+ <p class="intro">A connected journey from supplier to customer.</p>
+ <div class="flow">
+  <div class="flow-box">🏭<br><strong>Supplier</strong></div>
+  <div class="arrow">➜</div>
+  <div class="flow-box">📦<br><strong>Warehouse</strong></div>
+  <div class="arrow">➜</div>
+  <div class="flow-box">🚚<br><strong>Distribution</strong></div>
+  <div class="arrow">➜</div>
+  <div class="flow-box">🌍<br><strong>Customer</strong></div>
+ </div>
+</section>
+
+<section id="projects" class="reveal">
+ <div class="tag">ACADEMIC WORK</div>
+ <h2>Selected <span>Projects</span></h2>
+ <div class="grid">
+  <div class="card">
+   <div class="icon3d">🌐</div>
+   <h3>01. DHL Digital Supply Chain Transformation</h3>
+   <p>Academic project exploring IoT, Big Data, RFID and blockchain in logistics and supply chain operations.</p>
+  </div>
+  <div class="card">
+   <div class="icon3d">✈️</div>
+   <h3>02. FedEx – Global Logistics and Operations</h3>
+   <p>Academic study examining global logistics, operational strategy and future supply chain innovations.</p>
+  </div>
+  <div class="card">
+   <div class="icon3d">🛒</div>
+   <h3>03. UK Grocery Supply Chain Research</h3>
+   <p>Secondary research examining how Tesco and Sainsbury's responded to disruption following COVID-19 and Brexit, focusing on digital technology and recovery strategies.</p>
+  </div>
+ </div>
+</section>
+
+<section id="skills" class="reveal">
+ <div class="tag">WHAT I BRING</div>
+ <h2>Technical & <span>Professional Skills</span></h2>
+ <div class="skills">
+  <span>Microsoft Excel</span><span>SAP</span>
+  <span>Supply Chain Management</span><span>Logistics Management</span>
+  <span>Procurement</span><span>Operations Management</span>
+  <span>Digital Supply Chains</span><span>Inventory Management</span>
+  <span>English</span><span>Tamil</span>
+ </div>
+</section>
+
+<section id="contact" class="contact reveal">
+ <div class="tag">LET'S CONNECT</div>
+ <h2>Get In <span>Touch</span></h2>
+ <p class="intro" style="margin:auto">Interested in professional opportunities, logistics, supply chain management and collaboration.</p>
+ <a href="https://www.linkedin.com/in/aswin-francis-90a22b319/" class="btn" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+</section>
+
+<footer>
+ © 2026 Aswin Francis. All Rights Reserved.
+ <br>Supply Chain | Logistics | Operations
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("visible");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
+
